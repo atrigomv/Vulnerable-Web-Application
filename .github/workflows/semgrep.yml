@@ -2,21 +2,17 @@ name: Semgrep Scan
 run-name: Semgrep Scan
 on: [push]
 jobs:
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Code Checkout
-        uses: actions/checkout@v5
-      - name: Persist Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: my-artifact
-          path: .
-  
-  semgrep:
+  Semgrep_Scan:
     runs-on: ubuntu-latest
     steps:
       - name: Install Semgrep
         run: |
           python3 -m pip install semgrep
           semgrep --version
+      - name: Checkout Code
+        uses: actions/checkout@v5
+      - name: Executes Semgrep
+        run: |
+          ls -la
+          pwd
+          semgrep ci
