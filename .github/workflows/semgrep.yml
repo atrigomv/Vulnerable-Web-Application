@@ -14,7 +14,8 @@ jobs:
       - name: Executes Semgrep
         run: |
           semgrep --config "p/owasp-top-ten" --metrics=off --json -o semgrep_report.json
+      - name: Persist Report
         uses: actions/upload-artifact@v4
-        with:
+        with: 
           name: semgrep_report
           path: semgrep_report.json
