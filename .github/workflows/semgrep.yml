@@ -13,8 +13,7 @@ jobs:
         uses: actions/checkout@v5
       - name: Executes Semgrep
         run: |
-          semgrep --config "p/security-audit" --metrics=off --json -o semgrep_report.json /home/runner/work/Vulnerable-Web-Application/Vulnerable-Web-Application
-      - name: Persist Artifact
+          semgrep --config "p/owasp-top-ten" --metrics=off --json -o semgrep_report.json
         uses: actions/upload-artifact@v4
         with:
           name: semgrep_report
